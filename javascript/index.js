@@ -15,8 +15,8 @@ const splitsElement = document.getElementById('splits');
 
 function printTime() {
   // ... your code goes here
-  const minutes = Chronometer.getMinutes();
-  const seconds = Chronometer.getSeconds();
+  const minutes = chronometer.getMinutes();
+  const seconds = chronometer.getSeconds();
   const formattedMinutes = chronometer.computeTwoDigitNumber(minutes);
   const formattedSeconds = chronometer.computeTwoDigitNumber(seconds);
 
@@ -26,14 +26,15 @@ function printTime() {
 
 function printMinutes() {
   // ... your code goes here
-  const formattedMinutes = String(minutes).padStart(2, '0');
+  const minutes = chronometer.getMinutes();
+  const formattedMinutes = chronometer.computeTwoDigitNumber(minutes);
   console.log(`Elapsed time (minutes): ${formattedMinutes}`);
 }
 
 function printSeconds() {
   // ... your code goes here
-  const formattedSeconds = String(seconds).padStart(2, '0');
-  console.log(`Elapsed time (seconds): ${formattedSeconds}`);
+  const seconds = chronometer.getSeconds();
+  const formattedSeconds = chronometer.computeTwoDigitNumber(seconds);
 }
 
 // ==> BONUS
@@ -96,19 +97,13 @@ function setResetBtn() {
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
   // ... your code goes here
-  if (btnLeftElement.classList.contains("start")) {
+  if (chronometer.intervalId === null) {
     // Start the chronometer
     chronometer.start(printTime);
-    btnLeftElement.textContent = "STOP";
-    btnLeftElement.classList.remove("start");
-    btnLeftElement.classList.add("stop");
     setStopBtn();
 } else {
     // Stop the chronometer
     chronometer.stop();
-    btnLeftElement.textContent = "START";
-    btnLeftElement.classList.remove("stop");
-    btnLeftElement.classList.add("start");
     setStartBtn();
 }
 });
@@ -120,15 +115,11 @@ btnRightElement.addEventListener('click', () => {
     // Reset the chronometer
     chronometer.reset();
     printTime(); // Update display to show 0:00
-    btnRightElement.textContent = "SPLIT";
-    btnRightElement.classList.remove("reset");
-    btnRightElement.classList.add("split");
     setSplitBtn();
     clearSplits();
 } else {
     // Get the split time
     const splitTime = chronometer.split();
-    console.log(`Split time: ${splitTime}`);
     const listItem = document.createElement("li");
     listItem.textContent = splitTime;
     splitsElement.appendChild(listItem);
