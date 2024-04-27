@@ -40,7 +40,7 @@ function printSeconds() {
 // ==> BONUS
 function printMilliseconds() {
   // ... your code goes here
-  const milliseconds = Chronometer.getMilliseconds();
+  const milliseconds = Chronometer.milliseconds();
   const formattedMilliseconds = String(milliseconds).padStart(3, '0');
 
   document.getElementById('milliseconds').innerText = formattedMilliseconds;
