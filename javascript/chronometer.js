@@ -35,12 +35,12 @@ class Chronometer {
 
   computeTwoDigitNumber(value) {
     // ... your code goes here
-    return String(value).padSTart(2, '0');
+    return String(value).padStart(2, '0');
   }
 
   stop() {
     // ... your code goes here
-    clearInterval(this.IntervalId);
+    clearInterval(this.intervalId);
   }
 
   reset() {

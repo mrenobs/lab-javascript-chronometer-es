@@ -20,8 +20,8 @@ function printTime() {
   const formattedMinutes = chronometer.computeTwoDigitNumber(minutes);
   const formattedSeconds = chronometer.computeTwoDigitNumber(seconds);
 
-  document.getElementById('minutes').innerText = formattedMinutes;
-  document.getElementById('seconds').innerText = formattedSeconds;
+  document.getElementById('minUniElement').innerText = formattedMinutes;
+  document.getElementById('secUniElement').innerText = formattedSeconds;
 }
 
 function printMinutes() {
@@ -119,7 +119,7 @@ btnRightElement.addEventListener('click', () => {
   if (btnRightElement.classList.contains("reset")) {
     // Reset the chronometer
     chronometer.reset();
-    printTime(0); // Update display to show 0:00
+    printTime(); // Update display to show 0:00
     btnRightElement.textContent = "SPLIT";
     btnRightElement.classList.remove("reset");
     btnRightElement.classList.add("split");
@@ -131,7 +131,9 @@ btnRightElement.addEventListener('click', () => {
     console.log(`Split time: ${splitTime}`);
     const listItem = document.createElement("li");
     listItem.textContent = splitTime;
-    splitsList.appendChild(listItem);
+    splitsElement.appendChild(listItem);
     
 }
 });
+
+
