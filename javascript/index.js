@@ -15,44 +15,43 @@ const splitsElement = document.getElementById('splits');
 
 function printTime() {
   // ... your code goes here
-  const minutes = chronometer.getMinutes();
-    const secondsElapsed = chronometer.getSeconds();
-    const formattedMinutes = chronometer.computeTwoDigitNumber(minutes);
-    const formattedSeconds = chronometer.computeTwoDigitNumber(secondsElapsed);
-    console.log(`Elapsed time: ${formattedMinutes}:${formattedSeconds}`);
+  const formattedMinutes = chronometer.computeTwoDigitNumber(minutes);
+  const formattedSeconds = chronometer.computeTwoDigitNumber(seconds);
+  console.log(`Elapsed time: ${formattedMinutes}:${formattedSeconds}`);
 }
 
 function printMinutes() {
   // ... your code goes here
-  const formattedMinutes1 = String(minutes).padStart(2, '0');
-
+  const formattedMinutes = String(minutes).padStart(2, '0');
+  console.log(`Elapsed time (minutes): ${formattedMinutes}`);
 }
 
 function printSeconds() {
   // ... your code goes here
-  const formattedSeconds1 = String(seconds).padStart(2, '0');
-
+  const formattedSeconds = String(seconds).padStart(2, '0');
+  console.log(`Elapsed time (seconds): ${formattedSeconds}`);
 }
 
 // ==> BONUS
 function printMilliseconds() {
   // ... your code goes here
-  const seconds2 = Math.floor(milliseconds / 1000);
-  const minutes2 = Math.floor(seconds / 60);
-  const formattedMinutes2 = String(minutes).padStart(2, '0');
-  const formattedSeconds2 = String(seconds % 60).padStart(2, '0');
-  const formattedMilliseconds1 = String(milliseconds % 1000).padStart(3, '0');
+  const seconds = Math.floor(milliseconds / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const formattedMinutes = String(minutes).padStart(2, '0');
+  const formattedSeconds = String(seconds % 60).padStart(2, '0');
+  const formattedMilliseconds = String(milliseconds % 1000).padStart(3, '0');
+  console.log(`Elapsed time: ${formattedMinutes}:${formattedSeconds}.${formattedMilliseconds}`);
   
 }
   
 
 function printSplit() {
   // ... your code goes here
-  const seconds1 = Math.floor(milliseconds / 1000);
-    const minutes1 = Math.floor(seconds / 60);
-    const formattedMinutes3 = String(minutes).padStart(2, '0');
-    const formattedSeconds3 = String(seconds % 60).padStart(2, '0');
-    console.log(`Split time: ${formattedMinutes}:${formattedSeconds}.${formattedMilliseconds}`);
+  const seconds = Math.floor(milliseconds / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const formattedMinutes = String(minutes).padStart(2, '0');
+  const formattedSeconds = String(seconds % 60).padStart(2, '0');
+  console.log(`Split time: ${formattedMinutes}:${formattedSeconds}`);
 }
 
 function clearSplits() {

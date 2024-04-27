@@ -2,7 +2,7 @@ class Chronometer {
   constructor() {
     // ... your code goes here
     this.currentTime = 0;
-    this.intervalID = null;
+    this.intervalId = null;
   }
 
   start(callback) {
@@ -35,7 +35,7 @@ class Chronometer {
 
   computeTwoDigitNumber(value) {
     // ... your code goes here
-    return string(number).padSTart(2, '0');
+    return string(value).padSTart(2, '0');
   }
 
   stop() {
