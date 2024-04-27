@@ -15,13 +15,13 @@ const splitsElement = document.getElementById('splits');
 
 function printTime() {
   // ... your code goes here
-  const minutes = chronometer.getMinutes();
-  const seconds = chronometer.getSeconds();
+  const minutes = Chronometer.getMinutes();
+  const seconds = Chronometer.getSeconds();
   const formattedMinutes = chronometer.computeTwoDigitNumber(minutes);
   const formattedSeconds = chronometer.computeTwoDigitNumber(seconds);
 
-  document.getElementById('minUniElement').innerText = formattedMinutes;
-  document.getElementById('secUniElement').innerText = formattedSeconds;
+  document.getElementById(minUniElement).innerText = formattedMinutes;
+  document.getElementById(secUniElement).innerText = formattedSeconds;
 }
 
 function printMinutes() {
@@ -39,7 +39,7 @@ function printSeconds() {
 // ==> BONUS
 function printMilliseconds() {
   // ... your code goes here
-  const milliseconds = chronometer.getMilliseconds();
+  const milliseconds = Chronometer.getMilliseconds();
   const formattedMilliseconds = String(milliseconds).padStart(3, '0');
 
   document.getElementById('milliseconds').innerText = formattedMilliseconds;
@@ -49,7 +49,7 @@ function printMilliseconds() {
 
 function printSplit() {
   // ... your code goes here
-  const milliseconds = chronometer.getMilliseconds();
+  const milliseconds = Chronometer.getMilliseconds();
   const seconds = Math.floor(milliseconds / 1000);
   const minutes = Math.floor(seconds / 60);
   const formattedMinutes = String(minutes).padStart(2, '0');
